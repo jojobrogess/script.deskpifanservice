@@ -1,0 +1,162 @@
+# XBMC Media Center language file
+# Addon Name: Deskpi Fan Service
+# Addon id: script.deskpifanservice
+# Addon Provider: jojobrogess
+msgid ""
+msgstr ""
+"Project-Id-Version: XBMC-Addons\n"
+"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"POT-Creation-Date: 2014-10-26 17:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: /addon.py
+msgctxt "#30000"
+msgid "Deskpi Fan Service"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30001"
+msgid "Dependencies"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30002"
+msgid "Frist Stage Install Pyserial"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30003"
+msgid "Install Pyserial"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30004"
+msgid "Second Stage Install RPI-Tools"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30005"
+msgid "Install RPI-Tools"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30006"
+msgid "Third Stage Install System-Tools"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30007"
+msgid "Install System-Tools"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30008"
+msgid "Final Stage Install Deskpi Service"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30009"
+msgid "Install Deskpi Fan Control"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30010"
+msgid "Fan Service Config"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30011"
+msgid "Select Fan Mode"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30012"
+msgid "Fan Mode:"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30013"
+msgid "Constant"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30014"
+msgid "Custom"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30015"
+msgid "Set Constant Speed Value:"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30016"
+msgid "First Tempurature Threshold:"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30017"
+msgid "First Speed Threshold:"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30018"
+msgid "Second Tempurature Threshold:"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30019"
+msgid "Second Speed Threshold:"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30020"
+msgid "Third Tempurature Threshold:"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30021"
+msgid "Third Speed Threshold:"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30022"
+msgid "Final Tempurature Threshold:"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30023"
+msgid "Final Speed Threshold:"
+msgstr ""
+
+#: /addon.py
+msgctxt "#30024"
+msgid "Constant Fan Speed Value has been set to: "
+msgstr ""
+
+#: /addon.py
+msgctxt "#30025"
+msgid "Custom Fan Settings have been Updated"
+msgstr ""
+
+#: /addon.py
+msgctxt "#30026"
+msgid "This is what is currently inside your .conf file:"
+msgstr ""
+
+#: /addon.py
+msgctxt "#30027"
+msgid "Uninstall"
+msgstr ""
+
+#: /addon.py
+msgctxt "#30028"
+msgid "Uninstall all Deskpi Files and Services"
+msgstr ""

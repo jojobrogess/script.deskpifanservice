@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="30001">
+        <setting label="30002" type="lsep"/>
+        <setting label="30003" type="action" action="RunScript($CWD/resources/scripts/services/install_pyserial.py)"/>
+        <setting label="30004" type="lsep"/>
+        <setting label="30005" type="action" action="InstallAddon(virtual.rpi-tools)"/>
+        <setting label="Installed Version:$INFO[System.AddonVersion(virtual.rpi-tools)]" enable="false"/>
+        <setting label="30006" type="lsep"/>
+        <setting label="30007" type="action" action="InstallAddon(virtual.system-tools)"/>
+        <setting label="Installed Version:$INFO[System.AddonVersion(virtual.system-tools)]" enable="false"/>
+        <setting label="30008" type="lsep"/>
+        <setting label="30009" type="action" action="RunScript($CWD/resources/scripts/services/install_deskpi.py)"/>
+    </category>
+    <category label="30010">
+        <setting label="30011" type="lsep"/>
+        <setting label="30012" type="enum" id="get_mode" lvalues="30013|30014"/>
+        <setting label="30015" type="number" id="constant_val1" default="00" visible="eq(-1,0)"/>
+        <setting label="30016" type="number" id="temp1" default="35" visible="eq(-2,1)"/>
+        <setting label="30017" type="number" id="speed1" default="25" visible="eq(-3,1)"/>
+        <setting label="30018" type="number" id="temp2" default="40" visible="eq(-4,1)"/>
+        <setting label="30019" type="number" id="speed2" default="50" visible="eq(-5,1)"/>
+        <setting label="30020" type="number" id="temp3" default="45" visible="eq(-6,1)"/>
+        <setting label="30021" type="number" id="speed3" default="75" visible="eq(-7,1)"/>
+        <setting label="30022" type="number" id="temp4" default="50" visible="eq(-8,1)"/>
+        <setting label="30023" type="number" id="speed4" default="100" visible="eq(-9,1)"/>
+    </category>
+</settings>
+
