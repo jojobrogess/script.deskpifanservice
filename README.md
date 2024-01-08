@@ -3,10 +3,11 @@
 ### You MUST be on at least `LibreELEC-RPi4.arm-9.95.4`.
 
 **********************************************************************************************************************************************************************
+### PRIOR TO USAGE, GO TO: Settings > Installation > Install
 ### PLEASE REBOOT AFTER INSTALLING DESKPI SERVICE.
 
-### PRIOR TO USAGE, GO TO: Settings > Installation > Install
 
-PLEASE DO NOT MARKET THIS ON ANY PRODUCT PAGE!
-This software is NOT intented to be used as a selling point for the DeskpiPro Case. 
-It is to help people who ALREADY purchased a DeskpiPro case and have buyers remorse.
+*Installation requires modification to flash/config.txt file to add the flags:
+
+`otg_mode=1`, `dtoverlay=dwc2`, `dr_mode=host`, `dtoverlay=gpio-ir`, `gpio_pin=17`
+
