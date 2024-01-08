@@ -1,27 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.deskpifanservice" name="Deskpi Fan Service" version="0.0.1" provider-name="jojobrogess">
+<addon id="script.deskpifanservice"
+	   name="Deskpi Fan Service"
+	   version="0.0.2"
+	   provider-name="jojobrogess">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
+		<import addon="virtual.rpi-tools" version="10.0.0.111" />
+		<import addon="virtual.system-tools" version="10.0.0.134" />
 	</requires>
-    <extension point="xbmc.python.script" library="addon.py" />
+	<extension point="xbmc.python.script" library="main.py" />
+	<extension point="xbmc.python.module" library="resources/lib/serial" />
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en_GB">Deskpi Fan Service</summary>
-		<description lang="en_GB">LiBREELEC ONLY ADDON: Install Deskpi Fan Service Dependencies and Control Fan Speed. 
-		ATTENTION: Please RUN script to save settings.</description>
+		<summary lang="en_GB">Deskpi Pro Fan Case Service Installer and Controller</summary>
+		<description lang="en_GB">Install Deskpi Fan Services and Control Fan Speeds For The Deskpi Pro Case.
+Constant Mode:
+	Description: This mode keeps the fan running at a constant speed.
+    Operation: This value doesn't change; hence the name, the fan maintains a constant speed, regardless of the CPU temperature.
+   	Implementation: The code fetches the constant value from the XML configuration file and sends it to the fan controller.
+
+Variable Mode:
+    Description: This mode adjusts the fan speed based on CPU temperature and predefined temperature-speed pairs.
+    Operation: Users can define multiple temperature-speed pairs. When the CPU temperature crosses these thresholds, the fan adjusts its speed according to the corresponding predefined speed.
+    Implementation: The code checks the CPU temperature against the predefined pairs in the XML file. If the CPU temperature matches a predefined temperature, the corresponding fan speed is set.
+
+Over-Under Mode:
+    Description: This mode operates similarly to Variable Mode but considers a range around the current CPU temperature for fan speed adjustments.
+    Operation: Users specify a fan speed value in the configuration file, defining a range around the CPU temperature. The fan speed adjusts within this range, avoiding frequent fan speed changes.
+    Implementation: The code calculates upper and lower temperature thresholds based on the CPU temperature. The fan speed adjusts within this range, providing a more gradual response to temperature changes.
+		</description>
 		<platform>all</platform>
 		<website>https://www.github.com/jojobrogess/</website>
         <source>https://www.github.com/jojobrogess/script.deskpifanservice/</source>
         <news>
-1.0.0
+0.0.1
  - First stable release
+0.0.2
+ - Complete refactor and re-write.
         </news>
 		<assets>
 			<icon>icon.png</icon>
 			<fanart>fanart.jpg</fanart>
 			<screenshot>resources/media/screenshot-01.jpg</screenshot>
-    			<screenshot>resources/media/screenshot-02.jpg</screenshot>
-    			<screenshot>resources/media/screenshot-03.jpg</screenshot>
-    			<screenshot>resources/media/screenshot-04.jpg</screenshot>
+    		<screenshot>resources/media/screenshot-02.jpg</screenshot>
+    		<screenshot>resources/media/screenshot-03.jpg</screenshot>
+    		<screenshot>resources/media/screenshot-04.jpg</screenshot>
+			<screenshot>resources/media/screenshot-05.jpg</screenshot>
 		</assets>
 	</extension>
 </addon>

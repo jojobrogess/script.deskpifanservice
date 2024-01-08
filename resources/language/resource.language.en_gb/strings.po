@@ -15,6 +15,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"strings 33000 thru 33999 reserved for common strings used in add-ons"
+
+
+#: __file__
+msgctxt "#"
+msgid ""
+msgstr ""
+
+
+#: /__file__
+msgctxt "#30000"
+msgid ""
+msgstr ""
 
 #: /addon.py
 msgctxt "#30000"
@@ -23,140 +36,343 @@ msgstr ""
 
 #: /settings.xml
 msgctxt "#30001"
-msgid "Dependencies"
+msgid "Fan Settings"
 msgstr ""
 
 #: /settings.xml
 msgctxt "#30002"
-msgid "Frist Stage Install Pyserial"
-msgstr ""
-
-#: /settings.xml
-msgctxt "#30003"
-msgid "Install Pyserial"
-msgstr ""
-
-#: /settings.xml
-msgctxt "#30004"
-msgid "Second Stage Install RPI-Tools"
-msgstr ""
-
-#: /settings.xml
-msgctxt "#30005"
-msgid "Install RPI-Tools"
-msgstr ""
-
-#: /settings.xml
-msgctxt "#30006"
-msgid "Third Stage Install System-Tools"
-msgstr ""
-
-#: /settings.xml
-msgctxt "#30007"
-msgid "Install System-Tools"
-msgstr ""
-
-#: /settings.xml
-msgctxt "#30008"
-msgid "Final Stage Install Deskpi Service"
-msgstr ""
-
-#: /settings.xml
-msgctxt "#30009"
-msgid "Install Deskpi Fan Control"
-msgstr ""
-
-#: /settings.xml
-msgctxt "#30010"
-msgid "Fan Service Config"
-msgstr ""
-
-#: /settings.xml
-msgctxt "#30011"
 msgid "Select Fan Mode"
 msgstr ""
 
 #: /settings.xml
-msgctxt "#30012"
+msgctxt "#30003"
 msgid "Fan Mode:"
 msgstr ""
 
 #: /settings.xml
-msgctxt "#30013"
+msgctxt "#30004"
 msgid "Constant"
 msgstr ""
 
 #: /settings.xml
-msgctxt "#30014"
-msgid "Custom"
+msgctxt "#30005"
+msgid "Variable"
 msgstr ""
 
 #: /settings.xml
-msgctxt "#30015"
+msgctxt "#30006"
+msgid "OverUnder"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30007"
+msgid "Turn Off Fan"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30008"
 msgid "Set Constant Speed Value:"
 msgstr ""
 
 #: /settings.xml
-msgctxt "#30016"
-msgid "First Tempurature Threshold:"
+msgctxt "#30009"
+msgid "Always On"
 msgstr ""
 
 #: /settings.xml
-msgctxt "#30017"
+msgctxt "#30010"
+msgid "First Temperature Threshold:"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30011"
 msgid "First Speed Threshold:"
 msgstr ""
 
 #: /settings.xml
-msgctxt "#30018"
-msgid "Second Tempurature Threshold:"
+msgctxt "#30012"
+msgid "Second Temperature Threshold:"
 msgstr ""
 
 #: /settings.xml
-msgctxt "#30019"
+msgctxt "#30013"
 msgid "Second Speed Threshold:"
 msgstr ""
 
 #: /settings.xml
-msgctxt "#30020"
-msgid "Third Tempurature Threshold:"
+msgctxt "#30014"
+msgid "Third Temperature Threshold:"
 msgstr ""
 
 #: /settings.xml
-msgctxt "#30021"
+msgctxt "#30015"
 msgid "Third Speed Threshold:"
 msgstr ""
 
 #: /settings.xml
+msgctxt "#30016"
+msgid "Final Temperature Threshold:"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30017"
+msgid "Final Speed Threshold:"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30018"
+msgid "Fan Speed Under:"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30019"
+msgid "CPU Temp:"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30020"
+msgid "Fan Speed Over: "
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30021"
+msgid "Installation"
+msgstr ""
+
+#: /settings.xml
 msgctxt "#30022"
-msgid "Final Tempurature Threshold:"
+msgid "Install Deskpi Fan Services"
 msgstr ""
 
 #: /settings.xml
 msgctxt "#30023"
-msgid "Final Speed Threshold:"
+msgid "Install"
 msgstr ""
 
-#: /addon.py
+#: /settings.xml
 msgctxt "#30024"
-msgid "Constant Fan Speed Value has been set to: "
-msgstr ""
-
-#: /addon.py
-msgctxt "#30025"
-msgid "Custom Fan Settings have been Updated"
-msgstr ""
-
-#: /addon.py
-msgctxt "#30026"
-msgid "This is what is currently inside your .conf file:"
-msgstr ""
-
-#: /addon.py
-msgctxt "#30027"
 msgid "Uninstall"
 msgstr ""
 
-#: /addon.py
-msgctxt "#30028"
-msgid "Uninstall all Deskpi Files and Services"
+#: /settings.xml
+msgctxt "#30025"
+msgid "Troubleshoot"
 msgstr ""
+
+#: /settings.xml
+msgctxt "#30026"
+msgid "Advanced Troubleshooting"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30027"
+msgid "Check Installation"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30028"
+msgid "Restart Services"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30029"
+msgid "Check Uninstallation"
+msgstr ""
+
+
+
+
+
+#: /resources/install.py
+msgctxt "#30050"
+msgid ""
+"Deskpi Fan Service was installed successfully!\n"
+"Go to Fan Settings page to customize your setup."
+msgstr ""
+
+
+
+#: /resources/uninstall.py
+msgctxt "#30051"
+msgid "Config flags found and removed successfully."
+msgstr ""
+
+#: /resources/uninstall.py
+msgctxt "#30052"
+msgid "No matching config flags found or all have '#' in the line. Nothing to remove."
+msgstr ""
+
+#: /resources/uninstall.py
+msgctxt "#30053"
+msgid " service removed."
+msgstr ""
+
+#: /resources/uninstall.py
+msgctxt "#30054"
+msgid ""
+"All Deskpi files and services have been deleted.\n"
+"You can now uninstall the addon.\n"
+"Run integrity from troubleshooter if you want to confirm."
+msgstr ""
+
+
+
+#: /resources/install_integrity.py
+msgctxt "#30055"
+msgid "Configuration file is the missing flags:"
+msgstr ""
+
+#: /resources/install_integrity.py
+msgctxt "#30056"
+msgid "Configuration integrity check passed."
+msgstr ""
+
+#: /resources/install_integrity.py
+msgctxt "#30057"
+msgid "Service file(s) missing:"
+msgstr ""
+
+#: /resources/install_integrity.py
+msgctxt "#30058"
+msgid "Service integrity check passed."
+msgstr ""
+
+#: /resources/install_integrity.py
+msgctxt "#30059"
+msgid ""
+"Deskpi Fan Service Integrity Check: PASSED!\n"
+"If you're still having issues, please contact dev."
+msgstr ""
+
+#: /resources/install_integrity.py
+msgctxt "#30060"
+msgid ""
+"Deskpi Fan Service Integrity Check: FAILED!\n"
+"Check and collect logs, please contact dev."
+msgstr ""
+
+
+
+#: /resources/restart_services.py
+msgctxt "#30061"
+msgid "Error reloading systemd:"
+msgstr ""
+
+#: /resources/restart_services.py
+msgctxt "#30062"
+msgid "Ignoring"
+msgstr ""
+
+#: /resources/restart_services.py
+msgctxt "#30063"
+msgid " as it is not needed during active checks."
+msgstr ""
+
+#: /resources/restart_services.py
+msgctxt "#30064"
+msgid "Attempting to restart "
+msgstr ""
+
+#: /resources/restart_services.py
+msgctxt "#30065"
+msgid "Service "
+msgstr ""
+
+#: /resources/restart_services.py
+msgctxt "#30066"
+msgid " restarted successfully."
+msgstr ""
+
+#: /resources/restart_services.py
+msgctxt "#30067"
+msgid "Error restarting "
+msgstr ""
+
+#: /resources/restart_services.py
+msgctxt "#30068"
+msgid "Some services encountered issues during restart: "
+msgstr ""
+
+
+
+#: /resources/uninstall_integrity.py
+msgctxt "#30069"
+msgid "Flags found:"
+msgstr ""
+
+#: /resources/uninstall_integrity.py
+msgctxt "#30070"
+msgid "Config integrity check failed."
+msgstr ""
+
+#: /resources/uninstall_integrity.py
+msgctxt "#30071"
+msgid "Configuration integrity check passed."
+msgstr ""
+
+#: /resources/uninstall_integrity.py
+msgctxt "#30072"
+msgid " still exist."
+msgstr ""
+
+#: /resources/uninstall_integrity.py
+msgctxt "#30073"
+msgid "Service integrity check passed."
+msgstr ""
+
+#: /resources/uninstall_integrity.py
+msgctxt "#30074"
+msgid ""
+"Deskpi Fan Service Integrity Check: PASSED!\n"
+"If you're still having issues, please contact dev."
+msgstr ""
+
+#: /resources/uninstall_integrity.py
+msgctxt "#30075"
+msgid ""
+"Deskpi Fan Service Integrity Check: FAILED!\n"
+"Check and collect logs, please contact dev."
+msgstr ""
+
+
+
+#:
+msgctxt "#30073"
+msgid ""
+msgstr ""
+
+#:
+msgctxt "#30074"
+msgid ""
+msgstr ""
+
+#:
+msgctxt "#30075"
+msgid ""
+msgstr ""
+
+#:
+msgctxt "#30076"
+msgid ""
+msgstr ""
+
+#:
+msgctxt "#30077"
+msgid ""
+msgstr ""
+
+#:
+msgctxt "#30078"
+msgid ""
+msgstr ""
+
+#:
+msgctxt "#30079"
+msgid ""
+msgstr ""
+
+#:
+msgctxt "#30080"
+msgid ""
+msgstr ""
+
