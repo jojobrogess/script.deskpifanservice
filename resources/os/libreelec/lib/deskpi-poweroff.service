@@ -5,7 +5,7 @@ Before=halt.target shutdown.target poweroff.target
 DefaultDependencies=no
 [Service]
 Type=oneshot
-ExecStart=/bin/sh -c ". /etc/profile; exec /usr/bin/python /storage/.kodi/addons/script.deskpifanservice/resources/lib/powerbutton.py"
+ExecStart=/bin/sh -c ". /etc/profile; exec /usr/bin/python /storage/.kodi/addons/script.deskpifanservice/resources/os/libreelec/lib/powerbutton.py"
 RemainAfterExit=yes
 TimeoutSec=1
 [Install]

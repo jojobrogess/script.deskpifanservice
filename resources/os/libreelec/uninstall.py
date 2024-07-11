@@ -3,7 +3,7 @@ import subprocess
 from resources.lib.utils import show_dialog, get_string, log
 
 
-class Uninstaller:
+class Uninstall:
     def __init__(self):
         self.config = "/flash/config.txt"
         self.patterns = [
@@ -27,7 +27,6 @@ class Uninstaller:
             pass
 
     def uninstall_flash(self):
-        removed_patterns = []
         messages = []
         try:
             with open(self.config, 'r') as flash_driver:
@@ -43,11 +42,11 @@ class Uninstaller:
                 with open(self.config, 'w') as flash_writer:
                     flash_writer.writelines(updated_conf)
                 subprocess.run(["mount", "-o", "remount,ro", "/flash"])
-            else:            # No matching config flags found or all have '#' in the line. Nothing to remove.
+            else:  # No matching config flags found or all have '#' in the line. Nothing to remove.
                 messages = get_string(30052)
         except OSError as e:
             log(__file__, f"FATAL occurred while handling uninstalling flash config: {str(e)}")
-        return removed_patterns, messages
+        return messages
 
     def uninstall_services(self):
         messages = []
@@ -63,7 +62,7 @@ class Uninstaller:
         return messages
 
     def uninstall(self):
-        removed_patterns, messages_flash = self.uninstall_flash()
+        messages_flash = self.uninstall_flash()
         messages_services = self.uninstall_services()
         combined_message = "\n".join(messages_services)
         # "All Deskpi files and services have been deleted.\n" \
@@ -75,5 +74,5 @@ class Uninstaller:
 
 
 if __name__ == "__main__":
-    uninstaller = Uninstaller()
+    uninstaller = Uninstall()
     uninstaller.uninstall()

@@ -6,7 +6,7 @@ class UninstallIntegrity:
     def __init__(self):
         self.config_integrity = None
         self.service_integrity = None
-        self.config = "/flash/config.txt"
+        self.config = "/boot/config-user.txt"
         self.patterns = [
             'otg_mode=1',
             'dtoverlay=dwc2',
@@ -14,7 +14,7 @@ class UninstallIntegrity:
             'dtoverlay=gpio-ir',
             'gpio_pin=17'
         ]
-        self.service_library = "/storage/.config/system.d/"
+        self.service_library = "/lib/systemd/system/"
         self.services = [
             "deskpi.service",
             "deskpi-poweroff.service"
@@ -62,7 +62,7 @@ class UninstallIntegrity:
             service_messages.append(get_string(30073))
         return ' '.join(service_messages), self.service_integrity
 
-    def check_uninstall(self):
+    def uninstall_integrity(self):
         config_messages, self.config_integrity = self.check_config()
         service_messages, self.service_integrity = self.check_services()
         combined_messages = f"{config_messages}\n{service_messages}"
@@ -78,5 +78,5 @@ class UninstallIntegrity:
 
 
 if __name__ == "__main__":
-    checker = UninstallIntegrity()
-    checker.check_uninstall()
+    integrity = UninstallIntegrity()
+    integrity.uninstall_integrity()

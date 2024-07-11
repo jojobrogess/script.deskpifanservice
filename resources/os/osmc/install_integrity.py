@@ -2,11 +2,11 @@ import os
 from resources.lib.utils import get_string, show_dialog, log
 
 
-class Integrity:
+class InstallIntegrity:
     def __init__(self):
         self.config_integrity = None
         self.service_integrity = None
-        self.config = "/flash/config.txt"
+        self.config = "/boot/config-user.txt"
         self.patterns = [
             'otg_mode=1',
             'dtoverlay=dwc2',
@@ -14,7 +14,7 @@ class Integrity:
             'dtoverlay=gpio-ir',
             'gpio_pin=17'
         ]
-        self.service_library = "/storage/.config/system.d/"
+        self.service_library = "/lib/systemd/system/"
         self.services = [
             ("deskpi.service", 0o644),
             ("deskpi-poweroff.service", 0o644)
@@ -59,7 +59,7 @@ class Integrity:
             self.service_integrity = True
         return missing_services_message, self.service_integrity
 
-    def check_install(self):
+    def install_integrity(self):
         config_messages, self.config_integrity = self.check_config()
         service_messages, self.service_integrity = self.check_services()
         combined_messages = f"{config_messages}\n{service_messages}"
@@ -75,5 +75,5 @@ class Integrity:
 
 
 if __name__ == "__main__":
-    integrity = Integrity()
-    integrity.check_install()
+    integrity = InstallIntegrity()
+    integrity.install_integrity()

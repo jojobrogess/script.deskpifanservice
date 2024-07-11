@@ -1,11 +1,10 @@
 import os
 import subprocess
-from resources.lib.utils import addon_dir, addon_data_dir, get_string, show_dialog, log
+from resources.lib.utils import addon_dir, get_string, show_dialog, log
 
 
-class Installer:
+class Install:
     def __init__(self):
-        self.addon_data_dir = addon_data_dir()
         self.patterns = [
             'otg_mode=1',
             'dtoverlay=dwc2',
@@ -17,6 +16,23 @@ class Installer:
             ("deskpi.service", 0o644),
             ("deskpi-poweroff.service", 0o644)
         ]
+        self.old_install_paths = [
+            "/storage/user/bin/deskpi-defaultcontrol.py",
+            "/storage/.config/system.d/deskpi-default.service",
+            "/storage/user/bin/deskpi-poweroff.py",
+            "/storage/deskpi_installer.sh",
+            "/storage/uninstall_deskpi.sh",
+            "/storage/pyserial_installer.sh",
+        ]
+
+    def remove_old_installations(self):
+        for path in self.old_install_paths:
+            if os.path.exists(path):
+                try:
+                    os.remove(path)
+                    log(__file__, f"Removed old installation file: {path}")
+                except Exception as e:
+                    log(__file__, f"Error removing old installation file {path}: {str(e)}")
 
     def install_flash(self):
         try:
@@ -40,7 +56,7 @@ class Installer:
     def install_services(self):
         for service, permission in self.services:
             service_library = "/storage/.config/system.d/"
-            service_driver_path = os.path.join(addon_dir(), "resources", "lib", service)
+            service_driver_path = os.path.join(addon_dir(), "resources", "os", "libreelec", "lib", service)
             service_path = os.path.join(service_library, service)
             if not os.path.exists(service_path):
                 try:
@@ -68,6 +84,7 @@ class Installer:
                 log(__file__, f"Error checking or starting '{service}': {service_error}")
 
     def install(self):
+        self.remove_old_installations()
         self.install_flash()
         self.install_services()
         self.start_services()
@@ -78,5 +95,5 @@ class Installer:
 
 
 if __name__ == "__main__":
-    installer = Installer()
+    installer = Install()
     installer.install()

@@ -26,7 +26,7 @@
     <category label="30025">
         <setting label="30026" type="lsep"/>
         <setting label="30027" type="action" action="RunScript(script.deskpifanservice, install_integrity)"/>
-        <setting label="30028" type="action" action="RunScript(script.deskpifanservice, service_restart)"/>
+        <setting label="30028" type="action" action="RunScript(script.deskpifanservice, restart_services)"/>
         <setting label="30029" type="action" action="RunScript(script.deskpifanservice, uninstall_integrity)"/>
     </category>
 </settings>

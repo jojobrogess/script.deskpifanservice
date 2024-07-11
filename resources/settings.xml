@@ -256,7 +256,7 @@
 				</setting>
 				<setting id="hyypqkyzvfrmzvxpznabcvekcmgvgssp" type="action" label="30028" help="">
 					<level>0</level>
-					<data>RunScript(script.deskpifanservice, service_restart)</data>
+					<data>RunScript(script.deskpifanservice, restart_services)</data>
 					<constraints>
 						<allowempty>true</allowempty>
 					</constraints>

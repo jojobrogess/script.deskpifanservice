@@ -1,4 +1,3 @@
-import os
 import xbmc
 import xbmcvfs
 import xbmcgui
@@ -21,15 +20,17 @@ def translate_path(path):
     return xbmcvfs.translatePath(path)
 
 
-# output = /storage/.kodi/addons/script.deskpifanservice/
+# output *libre = /storage/.kodi/addons/script.deskpifanservice/
+# output *osmc = /home/osmc/.kodi/addons/script.deskpifanservice/
 def addon_dir():
     return translate_path(__addon.getAddonInfo('path'))
 
 
-# output = /storage/.kodi/userdata/addon_data/script.deskpifanservice/lib/
+# output = /storage/.kodi/userdata/addon_data/script.deskpifanservice/
+# output *osmc = /home/osmc/.kodi/addon_data/script.deskpifanservice/
 def addon_data_dir():
     addon_data_path = translate_path('special://userdata/addon_data/' + __addon_id__)
-    return os.path.join(addon_data_path, 'lib/')
+    return addon_data_path
 
 
 def get_string(string_id):

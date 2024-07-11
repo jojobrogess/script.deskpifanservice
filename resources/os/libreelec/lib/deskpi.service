@@ -1,0 +1,9 @@
+[Unit]
+Description=DeskPi_Fan_Service
+After=multi-user.target
+[Service]
+Type=simple
+RemainAfterExit=no
+ExecStart=/bin/sh -c ". /etc/profile; exec /usr/bin/python /storage/.kodi/addons/script.deskpifanservice/resources/os/libreelec/lib/controller.py"
+[Install]
+WantedBy=multi-user.target

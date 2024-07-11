@@ -1,0 +1,12 @@
+[Unit]
+Description=DeskPi_Power_Button_Service
+Conflicts=reboot.target
+Before=halt.target shutdown.target poweroff.target
+DefaultDependencies=no
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c ". /etc/profile; exec /usr/bin/python /home/osmc/.kodi/addons/script.deskpifanservice/resources/os/osmc/lib/powerbutton.py"
+RemainAfterExit=yes
+TimeoutSec=1
+[Install]
+WantedBy=halt.target shutdown.target poweroff.target

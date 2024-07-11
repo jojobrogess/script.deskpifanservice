@@ -2,11 +2,11 @@ import subprocess
 from resources.lib.utils import show_dialog, get_string
 
 
-class ServiceRestart:
+class RestartServices:
     def __init__(self):
         self.services = ["deskpi.service", "deskpi-poweroff.service"]
 
-    def restart(self):
+    def restart_services(self):
         messages = []
         all_services_running = True
         try:
@@ -40,5 +40,5 @@ class ServiceRestart:
 
 
 if __name__ == "__main__":
-    restarter = ServiceRestart()
-    restarter.restart()
+    restarter = RestartServices()
+    restarter.restart_services()

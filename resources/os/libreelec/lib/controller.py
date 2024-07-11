@@ -1,6 +1,6 @@
 import sys
 import time
-from library import XMLParser, SerialManager
+from con_utils import XMLParser, SerialManager
 
 serial_path = "/storage/.kodi/addons/script.deskpifanservice/resources/lib/"
 sys.path.append(serial_path)
