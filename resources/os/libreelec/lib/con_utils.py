@@ -1,5 +1,71 @@
 import os
+import sys
+sys.path.append('/storage/.kodi/addons/virtual.rpi-tools/lib')
+import RPi.GPIO as GPIO
 import xml.etree.ElementTree as ETree
+
+def read_cpu_temp():
+    try:
+        with open("/sys/class/thermal/thermal_zone0/temp", "r") as o:
+            cpu_temp = int(o.read().strip()) // 1000
+        return cpu_temp
+    except FileNotFoundError:
+        exit(1)
+
+
+class SerialManager:
+    def __init__(self, serial_param):
+        self.serial_port = serial_param
+
+    def send_serial(self, data):
+        self.serial_port.write(data.encode())
+
+    @staticmethod
+    def mock_send_serial(data, cpu_temp=None):
+        if data:
+            if cpu_temp is not None:
+                print(f"Current CPU temp: {cpu_temp} °C")
+            print(f"Mock sending data: {data}")
+        else:
+            print("No data to send")
+
+
+class PWMManager:
+    def __init__(self, pin, freq=100):
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(pin, GPIO.OUT)
+        self.pwm = GPIO.PWM(pin, freq)
+        self.pwm.start(0)
+        self.current_dc = 0
+
+    def stop(self):
+        self.pwm.stop()
+        GPIO.cleanup()
+
+    def send_pwm(self, speed):
+        try:
+            dc = int(speed.split("_")[1])
+        except (IndexError, ValueError):
+            dc = 0
+        if dc != self.current_dc:
+            print(f"Fan speed changed. Duty cycle: {dc}")
+            self.pwm.ChangeDutyCycle(dc)
+            self.current_dc = dc
+
+    @staticmethod
+    def mock_send_pwm(speed, current_dc=None):
+        try:
+            dc = int(speed.split("_")[1])
+        except (IndexError, ValueError):
+            dc = 0
+        if current_dc is None:
+            current_dc = -1  # ensures first call triggers change
+        if dc != current_dc:
+            print(f"Mock fan speed changed. Duty cycle: {dc}")
+            current_dc = dc
+        else:
+            print(f"Mock fan speed unchanged. Duty cycle remains: {dc}")
+        return current_dc
 
 
 class XMLParser:
@@ -20,10 +86,6 @@ class XMLParser:
         except OSError as e:
             print(f"Error accessing XML file: {e}")
 
-    def get_mode(self):
-        self.load_xml()
-        return self._get_setting('mode')
-
     def _get_setting(self, setting_id):
         self.load_xml()
         return self.root.find(f'setting[@id="{setting_id}"]')
@@ -35,15 +97,19 @@ class XMLParser:
             return setting.text.lower() == 'true'
         return default
 
+    def get_pin(self):
+        self.load_xml()
+        return self._get_setting('gpio_pin')
+
+    def get_mode(self):
+        self.load_xml()
+        return self._get_setting('mode')
+
     def always_on(self):
         return self._check_setting('always_on', default=False)
 
     def turn_off(self):
         return self._check_setting('turn_off', default=False)
-
-    def buffer_value(self):
-        buffer_setting = self._get_setting('buffer')
-        return buffer_setting
 
     def constant_value(self):
         speed_setting = self._get_setting('constant_value')
@@ -66,31 +132,4 @@ class XMLParser:
         fan_speed_under = int(self._get_setting('o_speed1').text.zfill(3))
         temp = int(self._get_setting('o_temp').text)
         fan_speed_over = int(self._get_setting('o_speed2').text.zfill(3))
-
         return fan_speed_under, temp, fan_speed_over
-
-
-class SerialManager:
-    def __init__(self, serial_param):
-        self.serial_port = serial_param
-
-    def send_serial(self, data):
-        self.serial_port.write(data.encode())
-
-    @staticmethod
-    def mock_send_serial(data, cpu_temp=None):
-        if data:
-            if cpu_temp is not None:
-                print(f"Current CPU temp: {cpu_temp} °C")
-            print(f"Mock sending data: {data}")
-        else:
-            print("No data to send")
-
-    @staticmethod
-    def read_cpu_temp():
-        try:
-            with open("/sys/class/thermal/thermal_zone0/temp", "r") as o:
-                cpu_temp = int(o.read().strip()) // 1000
-            return cpu_temp
-        except FileNotFoundError:
-            exit(1)

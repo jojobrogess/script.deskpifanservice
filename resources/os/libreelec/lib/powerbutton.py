@@ -5,6 +5,7 @@ addon_dir = '/storage/.kodi/addons/script.deskpifanservice/'
 serial_path = os.path.join(addon_dir, "resources", "lib")
 sys.path.append(serial_path)
 
+# noinspection PyUnresolvedReferences
 import serial
 
 

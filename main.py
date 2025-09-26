@@ -16,7 +16,6 @@ def detect_os():
     except FileNotFoundError:
         return 'unknown'
 
-
 def args():
     if len(sys.argv) > 1:
         arg = sys.argv[1]

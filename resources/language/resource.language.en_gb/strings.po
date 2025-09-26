@@ -17,18 +17,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "strings 33000 thru 33999 reserved for common strings used in add-ons"
 
-
-#: __file__
-msgctxt "#"
-msgid ""
-msgstr ""
-
-
-#: /__file__
-msgctxt "#30000"
-msgid ""
-msgstr ""
-
 #: /addon.py
 msgctxt "#30000"
 msgid "Deskpi Fan Service"
@@ -41,32 +29,32 @@ msgstr ""
 
 #: /settings.xml
 msgctxt "#30002"
-msgid "Select Fan Mode"
+msgid "Turn Off Fan"
 msgstr ""
 
 #: /settings.xml
 msgctxt "#30003"
-msgid "Fan Mode:"
+msgid "Select Fan Mode"
 msgstr ""
 
 #: /settings.xml
 msgctxt "#30004"
-msgid "Constant"
+msgid "Fan Mode:"
 msgstr ""
 
 #: /settings.xml
 msgctxt "#30005"
-msgid "Variable"
+msgid "Constant"
 msgstr ""
 
 #: /settings.xml
 msgctxt "#30006"
-msgid "OverUnder"
+msgid "Variable"
 msgstr ""
 
 #: /settings.xml
 msgctxt "#30007"
-msgid "Turn Off Fan"
+msgid "OverUnder"
 msgstr ""
 
 #: /settings.xml
@@ -141,111 +129,110 @@ msgstr ""
 
 #: /settings.xml
 msgctxt "#30022"
-msgid "Install Deskpi Fan Services"
+msgid "Select Case Type"
 msgstr ""
 
 #: /settings.xml
 msgctxt "#30023"
-msgid "Install"
+msgid "Case"
 msgstr ""
 
 #: /settings.xml
 msgctxt "#30024"
-msgid "Uninstall"
+msgid "Pro"
 msgstr ""
 
 #: /settings.xml
 msgctxt "#30025"
-msgid "Troubleshoot"
+msgid "Lite"
 msgstr ""
 
 #: /settings.xml
 msgctxt "#30026"
-msgid "Advanced Troubleshooting"
+msgid "GPIO Fan Pin"
 msgstr ""
 
 #: /settings.xml
 msgctxt "#30027"
-msgid "Check Installation"
+msgid "Deskpi Fan Services"
 msgstr ""
 
 #: /settings.xml
 msgctxt "#30028"
-msgid "Restart Services"
+msgid "Install"
 msgstr ""
 
 #: /settings.xml
 msgctxt "#30029"
-msgid "Check Uninstallation"
+msgid "Uninstall"
 msgstr ""
 
+#: /settings.xml
+msgctxt "#30030"
+msgid "Troubleshoot"
+msgstr ""
 
+#: /settings.xml
+msgctxt "#30031"
+msgid "Advanced Troubleshooting"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30032"
+msgid "Check Installation"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30033"
+msgid "Restart Services"
+msgstr ""
+
+#: /settings.xml
+msgctxt "#30034"
+msgid "Check Uninstallation"
+msgstr ""
 
 
 
 #: /resources/install.py
 msgctxt "#30050"
 msgid ""
-"Deskpi Fan Service was installed successfully!\n"
-"Go to Fan Settings page to customize your setup."
-msgstr ""
-
-
-
-#: /resources/uninstall.py
-msgctxt "#30051"
-msgid "Config flags found and removed successfully."
-msgstr ""
-
-#: /resources/uninstall.py
-msgctxt "#30052"
-msgid "No matching config flags found or all have '#' in the line. Nothing to remove."
-msgstr ""
-
-#: /resources/uninstall.py
-msgctxt "#30053"
-msgid " service removed."
-msgstr ""
-
-#: /resources/uninstall.py
-msgctxt "#30054"
-msgid ""
-"All Deskpi files and services have been deleted.\n"
-"You can now uninstall the addon.\n"
-"Run integrity from troubleshooter if you want to confirm."
+"Deskpi Fan Service installed successfully! "
+"Please restart your device. "
+"Then return to the settings page to customize your setup."
 msgstr ""
 
 
 
 #: /resources/install_integrity.py
-msgctxt "#30055"
+msgctxt "#30051"
 msgid "Configuration file is the missing flags:"
 msgstr ""
 
 #: /resources/install_integrity.py
-msgctxt "#30056"
+msgctxt "#30052"
 msgid "Configuration integrity check passed."
 msgstr ""
 
 #: /resources/install_integrity.py
-msgctxt "#30057"
+msgctxt "#30053"
 msgid "Service file(s) missing:"
 msgstr ""
 
 #: /resources/install_integrity.py
-msgctxt "#30058"
+msgctxt "#30054"
 msgid "Service integrity check passed."
 msgstr ""
 
 #: /resources/install_integrity.py
-msgctxt "#30059"
+msgctxt "#30055"
 msgid ""
 "Deskpi Fan Service Integrity Check: PASSED!\n"
 "If you're still having issues, please contact dev."
 msgstr ""
 
 #: /resources/install_integrity.py
-msgctxt "#30060"
+msgctxt "#30056"
 msgid ""
 "Deskpi Fan Service Integrity Check: FAILED!\n"
 "Check and collect logs, please contact dev."
@@ -253,82 +240,65 @@ msgstr ""
 
 
 
-#: /resources/restart_services.py
-msgctxt "#30061"
-msgid "Error reloading systemd:"
+#: /resources/uninstall.py
+msgctxt "#30057"
+msgid "Config flags found and removed successfully."
 msgstr ""
 
-#: /resources/restart_services.py
-msgctxt "#30062"
-msgid "Ignoring"
+#: /resources/uninstall.py
+msgctxt "#30058"
+msgid "No matching config flags found or all have '#' in the line. Nothing to remove."
 msgstr ""
 
-#: /resources/restart_services.py
-msgctxt "#30063"
-msgid " as it is not needed during active checks."
+#: /resources/uninstall.py
+msgctxt "#30059"
+msgid "service removed."
 msgstr ""
 
-#: /resources/restart_services.py
-msgctxt "#30064"
-msgid "Attempting to restart "
-msgstr ""
-
-#: /resources/restart_services.py
-msgctxt "#30065"
-msgid "Service "
-msgstr ""
-
-#: /resources/restart_services.py
-msgctxt "#30066"
-msgid " restarted successfully."
-msgstr ""
-
-#: /resources/restart_services.py
-msgctxt "#30067"
-msgid "Error restarting "
-msgstr ""
-
-#: /resources/restart_services.py
-msgctxt "#30068"
-msgid "Some services encountered issues during restart: "
+#: /resources/uninstall.py
+msgctxt "#30060"
+msgid ""
+"All Deskpi files and services have been deleted. "
+"You can now uninstall the addon. "
+"Run integrity from troubleshooter to confirm. "
 msgstr ""
 
 
 
 #: /resources/uninstall_integrity.py
-msgctxt "#30069"
+msgctxt "#30061"
 msgid "Flags found:"
 msgstr ""
 
 #: /resources/uninstall_integrity.py
-msgctxt "#30070"
+msgctxt "#30062"
 msgid "Config integrity check failed."
 msgstr ""
 
 #: /resources/uninstall_integrity.py
-msgctxt "#30071"
+msgctxt "#30063"
 msgid "Configuration integrity check passed."
 msgstr ""
 
 #: /resources/uninstall_integrity.py
-msgctxt "#30072"
+msgctxt "#30064"
 msgid " still exist."
 msgstr ""
 
 #: /resources/uninstall_integrity.py
-msgctxt "#30073"
+msgctxt "#30065"
 msgid "Service integrity check passed."
 msgstr ""
 
 #: /resources/uninstall_integrity.py
-msgctxt "#30074"
+msgctxt "#30066"
 msgid ""
 "Deskpi Fan Service Integrity Check: PASSED!\n"
 "If you're still having issues, please contact dev."
 msgstr ""
 
 #: /resources/uninstall_integrity.py
-msgctxt "#30075"
+msgctxt "#30067"
 msgid ""
 "Deskpi Fan Service Integrity Check: FAILED!\n"
 "Check and collect logs, please contact dev."
@@ -336,43 +306,55 @@ msgstr ""
 
 
 
-#:
+#: /resources/restart_services.py
+msgctxt "#30068"
+msgid "Error reloading systemd:"
+msgstr ""
+
+#: /resources/restart_services.py
+msgctxt "#30069"
+msgid "Ignoring"
+msgstr ""
+
+#: /resources/restart_services.py
+msgctxt "#30070"
+msgid " as it is not needed during active checks."
+msgstr ""
+
+#: /resources/restart_services.py
+msgctxt "#30071"
+msgid "Attempting to restart "
+msgstr ""
+
+#: /resources/restart_services.py
+msgctxt "#30072"
+msgid "Service"
+msgstr ""
+
+#: /resources/restart_services.py
 msgctxt "#30073"
-msgid ""
+msgid " restarted successfully."
 msgstr ""
 
-#:
+#: /resources/restart_services.py
 msgctxt "#30074"
-msgid ""
+msgid "Error restarting "
 msgstr ""
 
-#:
+#: /resources/restart_services.py
 msgctxt "#30075"
-msgid ""
+msgid "Some services encountered issues during restart: "
 msgstr ""
 
-#:
+
+#: /resources/restart_services.py
 msgctxt "#30076"
 msgid ""
 msgstr ""
 
-#:
+#: /resources/restart_services.py
 msgctxt "#30077"
 msgid ""
 msgstr ""
 
-#:
-msgctxt "#30078"
-msgid ""
-msgstr ""
-
-#:
-msgctxt "#30079"
-msgid ""
-msgstr ""
-
-#:
-msgctxt "#30080"
-msgid ""
-msgstr ""
-
++++

@@ -1,6 +1,6 @@
 import os
 import subprocess
-from resources.lib.utils import addon_dir, get_string, show_dialog, log
+from resources.lib.utils import addon_dir, get_string, get_setting, show_dialog, log
 
 
 class Install:
@@ -68,6 +68,31 @@ class Install:
                 except Exception as chmod_error:
                     log(__file__, f"Error changing permissions for {service}: {str(chmod_error)}")
 
+    def case_check(self):
+        try:
+            case_type = get_setting("case_type")
+            if case_type != "0":
+                self.case_switch()
+            return None
+        except Exception as e:
+            log(__file__, f"Error retrieving case_type: {e}")
+            return None
+
+    @staticmethod
+    def case_switch():
+        service_path = "/storage/.config/system.d/deskpi.service"
+        old_str = "controller.py"
+        new_str = "controller_lite.py"
+        try:
+            with open(service_path, 'r') as f:
+                content = f.read()
+            content = content.replace(old_str, new_str)
+            with open(service_path, 'w') as f:
+                f.write(content)
+            log(__file__, f"{old_str} successfully replaced with {new_str} in deskpi.service")
+        except Exception as e:
+            log(__file__, f"Error updating files: {str(e)}")
+
     @staticmethod
     def start_services():
         servs = ["deskpi.service", "deskpi-poweroff.service"]
@@ -87,6 +112,7 @@ class Install:
         self.remove_old_installations()
         self.install_flash()
         self.install_services()
+        self.case_check()
         self.start_services()
         # line1 = "Deskpi Fan Service installed successfully!\n"
         # line2 = "Return to the settings page to customize your setup."

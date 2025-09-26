@@ -1,10 +1,11 @@
 import sys
 import time
-from con_utils import XMLParser, SerialManager
+from con_utils import XMLParser, SerialManager, read_cpu_temp
 
 serial_path = "/storage/.kodi/addons/script.deskpifanservice/resources/lib/"
 sys.path.append(serial_path)
 
+# noinspection PyUnresolvedReferences
 import serial
 
 
@@ -12,6 +13,7 @@ class Driver:
     def __init__(self, _file_path, _serial_port):
         self.parser = XMLParser(_file_path)
         self.serial_manager = SerialManager(_serial_port)
+        self.read_cpu_temp = read_cpu_temp
         self.min_temp = 0
         self.data = ""
 
@@ -38,7 +40,7 @@ class Driver:
                     mode_element = self.parser.get_mode()
                     mode = mode_element.text if mode_element is not None else "No mode found"
                     print(f"Mode: {mode}")
-                    cpu_temp = self.serial_manager.read_cpu_temp()
+                    cpu_temp = self.read_cpu_temp()
                     print(f"Current CPU Temp: {cpu_temp}°C")
 
                     if mode == '0':
