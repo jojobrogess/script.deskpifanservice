@@ -1,4 +1,7 @@
 import time
+import sys
+sys.path.append('/storage/.kodi/addons/virtual.rpi-tools/lib')
+import RPi.GPIO as GPIO
 from con_utils import XMLParser, PWMManager, read_cpu_temp
 
 
@@ -6,7 +9,6 @@ class Driver:
     def __init__(self, _file_path, rename):
         self.parser = XMLParser(_file_path)
         self.pwm_manager = PWMManager(rename)
-        #
         self.read_cpu_temp = read_cpu_temp
         self.min_temp = 0
         self.data = ""
@@ -79,6 +81,13 @@ class Driver:
 if __name__ == "__main__":
     file_path = '/storage/.kodi/userdata/addon_data/script.deskpifanservice/settings.xml'
     parser_instance = XMLParser(file_path)
-    pwm_pin = parser_instance.get_pin()
+    pwm_pin = int(parser_instance.get_pin())
     driver_instance = Driver(file_path, pwm_pin)
-    driver_instance.run()
+
+    try:
+        driver_instance.run()
+    except KeyboardInterrupt:
+        driver_instance.pwm_manager.stop()
+    finally:
+        GPIO.cleanup()
+

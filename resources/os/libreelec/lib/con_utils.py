@@ -40,7 +40,6 @@ class PWMManager:
 
     def stop(self):
         self.pwm.stop()
-        GPIO.cleanup()
 
     def send_pwm(self, speed):
         try:
@@ -59,7 +58,7 @@ class PWMManager:
         except (IndexError, ValueError):
             dc = 0
         if current_dc is None:
-            current_dc = -1  # ensures first call triggers change
+            current_dc = -1
         if dc != current_dc:
             print(f"Mock fan speed changed. Duty cycle: {dc}")
             current_dc = dc
@@ -99,7 +98,7 @@ class XMLParser:
 
     def get_pin(self):
         self.load_xml()
-        return self._get_setting('gpio_pin')
+        return self._get_setting('gpio_pin').text
 
     def get_mode(self):
         self.load_xml()
