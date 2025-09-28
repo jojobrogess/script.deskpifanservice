@@ -89,7 +89,7 @@ if __name__ == "__main__":
     parser_instance = XMLParser(file_path)
     pwm_pin = int(parser_instance.get_pin())
     pwm_device = PWMOutputDevice(pwm_pin, initial_value=0, frequency=100)
-    driver_instance = Driver(file_path, pwm_pin)
+    driver_instance = Driver(file_path, pwm_device)
 
     try:
         driver_instance.run()
