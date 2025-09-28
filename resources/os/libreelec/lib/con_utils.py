@@ -1,8 +1,6 @@
 import os
-import sys
-sys.path.append('/storage/.kodi/addons/virtual.rpi-tools/lib')
-import RPi.GPIO as GPIO
 import xml.etree.ElementTree as ETree
+from gpiozero import PWMOutputDevice
 
 def read_cpu_temp():
     try:
@@ -32,24 +30,22 @@ class SerialManager:
 
 class PWMManager:
     def __init__(self, pin, freq=100):
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(pin, GPIO.OUT)
-        self.pwm = GPIO.PWM(pin, freq)
-        self.pwm.start(0)
+        self.pwm = PWMOutputDevice(pin, initial_value=0, frequency=freq)
         self.current_dc = 0
 
     def stop(self):
-        self.pwm.stop()
+        self.pwm.value = 0
+        print("PWM stopped")
 
     def send_pwm(self, speed):
         try:
-            dc = int(speed.split("_")[1])
+            dc = int(speed.split("_")[1]) / 100.0  # gpiozero expects 0.0–1.0 RPi.GPIO expects 0-100
         except (IndexError, ValueError):
-            dc = 0
+            dc = 0.0
         if dc != self.current_dc:
-            print(f"Fan speed changed. Duty cycle: {dc}")
-            self.pwm.ChangeDutyCycle(dc)
+            self.pwm.value = dc
             self.current_dc = dc
+            print(f"Fan speed changed. Duty cycle: {int(dc*100)}")
 
     @staticmethod
     def mock_send_pwm(speed, current_dc=None):
